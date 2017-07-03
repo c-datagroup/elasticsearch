@@ -30,7 +30,7 @@ import org.apache.lucene.search.vectorhighlight.FragmentsBuilder;
 import org.apache.lucene.search.vectorhighlight.ScoreOrderFragmentsBuilder;
 import org.apache.lucene.search.vectorhighlight.SimpleBoundaryScanner;
 import org.apache.lucene.search.vectorhighlight.SimpleFieldFragList;
-import org.apache.lucene.search.vectorhighlight.SimpleFragListBuilder;
+import org.apache.lucene.search.vectorhighlight.WeightedFragListBuilder;
 import org.apache.lucene.search.vectorhighlight.SingleFragListBuilder;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.text.Text;
@@ -124,7 +124,7 @@ public class FastVectorHighlighter implements Highlighter {
                     }
                 } else {
                     fragListBuilder = field.fieldOptions().fragmentOffset() == -1 ?
-                            new SimpleFragListBuilder() : new SimpleFragListBuilder(field.fieldOptions().fragmentOffset());
+                            new WeightedFragListBuilder() : new WeightedFragListBuilder(field.fieldOptions().fragmentOffset());
                     if (field.fieldOptions().scoreOrdered()) {
                         if (!forceSource && mapper.fieldType().stored()) {
                             fragmentsBuilder = new ScoreOrderFragmentsBuilder(field.fieldOptions().preTags(),
