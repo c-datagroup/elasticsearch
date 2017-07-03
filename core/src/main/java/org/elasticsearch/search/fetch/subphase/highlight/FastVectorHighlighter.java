@@ -124,7 +124,7 @@ public class FastVectorHighlighter implements Highlighter {
                     }
                 } else {
                     fragListBuilder = field.fieldOptions().fragmentOffset() == -1 ?
-                            new WeightedFragListBuilder() : new WeightedFragListBuilder(field.fieldOptions().fragmentOffset());
+                            new WeightedFragListBuilderEx() : new WeightedFragListBuilderEx(field.fieldOptions().fragmentOffset());
                     if (field.fieldOptions().scoreOrdered()) {
                         if (!forceSource && mapper.fieldType().stored()) {
                             fragmentsBuilder = new ScoreOrderFragmentsBuilder(field.fieldOptions().preTags(),

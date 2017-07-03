@@ -68,6 +68,8 @@ public abstract class AbstractHighlighterBuilder<HB extends AbstractHighlighterB
     public static final ParseField HIGHLIGHT_QUERY_FIELD = new ParseField("highlight_query");
     public static final ParseField MATCHED_FIELDS_FIELD = new ParseField("matched_fields");
 
+    protected float lenghWeight;
+
     protected String[] preTags;
 
     protected String[] postTags;
